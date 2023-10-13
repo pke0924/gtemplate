@@ -1,0 +1,62 @@
+﻿[
+  {
+    "label": "Resources",
+    "icon": "pi pi-fw pi-plus",
+    "items": [
+      [
+        {
+          "label": "Risk Achives",
+          "icon": "pi pi-fw pi-plus",
+          "items": [
+            {
+              "label": "KICS",
+              "icon": "pi pi-fw pi-id-card",
+              "command": "() => router.push('/kics')"
+            },
+            {
+              "label": "Input",
+              "icon": "pi pi-fw pi-check-square",
+              "command": "() => router.push(/posts)"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "label": "IFRS Achives",
+          "icon": "pi pi-fw pi-plus",
+          "items": [
+            {
+              "label": "IFRS 17",
+              "icon": "pi pi-fw pi-id-card",
+              "command": "() => router.push('/kics')"
+            },
+            {
+              "label": "IFRS Achives",
+              "icon": "pi pi-fw pi-check-square",
+              "command": "() => router.push('/kics')"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "label": "BOK Achives",
+          "icon": "pi pi-fw pi-plus",
+          "items": [
+            {
+              "label": "IFRS 17",
+              "icon": "pi pi-fw pi-id-card",
+              "command": "() => router.push('/fs')"
+            },
+            {
+              "label": "IFRS Achives",
+              "icon": "pi pi-fw pi-check-square",
+              "command": "() => router.push('/fs')"
+            }
+          ]
+        }
+      ]
+    ]
+  }
+]

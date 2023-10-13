@@ -1,0 +1,504 @@
+---
+title: component 
+date: 2023-09-25
+---
+
+mdx작성시 사용하는 컴포넌트와 사용법을 설명함.
+
+
+# PrimeReact component
+---
+> `Accordion` \
+https://primereact.org/accordion/
+
+    <Accordion activeIndex={[0]}>
+    <AccordionTab header=" 원문자">
+        입력 예시
+        - ㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻
+    </AccordionTab>
+    <AccordionTab header=" 괄호문자">
+      입력 예시
+      - • 한글 : ㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛
+      - • 자음 : ㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍
+      - • 알파벳 : ⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵
+    </AccordionTab>
+    <AccordionTab header=" 숫자">
+        입력 예시
+      - • 기본 : ⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛
+      - • 괄호 : ⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇
+      - • 원 : ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+    </AccordionTab>
+    </Accordion>
+
+<details>
+<summary> 코드 보기 </summary>
+```
+    <Accordion activeIndex={[0]}>
+    <AccordionTab header=" 원문자">
+        입력 예시
+        - ㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻
+    </AccordionTab>
+    <AccordionTab header=" 괄호문자">
+      입력 예시
+      - • 한글 : ㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛
+      - • 자음 : ㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍
+      - • 알파벳 : ⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵
+
+    </AccordionTab>
+    <AccordionTab header=" 숫자">
+        입력 예시
+      - • 기본 : ⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛
+      - • 괄호 : ⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇
+      - • 원 : ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+    </AccordionTab>
+    </Accordion>
+```
+</details>
+<br/>
+
+---
+> `Tab`\
+https://primereact.org/tabview/
+
+    <TabView>
+        <TabPanel header="Header I">
+                기본 문단 
+                - • 수준1 : 수준1 목록, 불릿(•)으로 표기 
+                  - – 수준2 : 수준2 목록1, 세부 목록의 경우 특수기호 하이픈(–)으로 표기 
+                  - – 수준2 : 수준2 목록2, 세부 목록의 경우 특수기호 하이픈(–)으로 표기 
+        </TabPanel>
+        <TabPanel header="roman">
+                - Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ 
+                - ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ
+        </TabPanel>
+        <TabPanel header="check box">
+              - ☐☑☒
+              - ✓✔✗✘
+        </TabPanel>
+    </TabView>
+
+<details>
+<summary>코드보기</summary>
+```
+    <TabView>
+        <TabPanel header="Header I">
+                기본 문단 
+                - • 수준1 : 수준1 목록, 불릿(•)으로 표기 
+                  - – 수준2 : 수준2 목록1, 세부 목록의 경우 특수기호 하이픈(–)으로 표기 
+                  - – 수준2 : 수준2 목록2, 세부 목록의 경우 특수기호 하이픈(–)으로 표기 
+        </TabPanel>
+        <TabPanel header="roman">
+                - Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ 
+                - ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ
+        </TabPanel>
+        <TabPanel header="check box">
+              - ☐☑☒
+              - ✓✔✗✘
+        </TabPanel>
+    </TabView>
+```
+</details>
+<br/>
+---
+
+> `Panel`\
+https://primereact.org/panel/
+
+    <Panel header=" header " toggleable>
+        - 태그의 prop에 `toggleable` 옵션을 주면 접힌다. 
+        - 오른쪽 버튼으로 접기/펴기
+    </Panel>
+
+
+<details>
+<summary>코드보기</summary>
+```
+    <Panel header=" header " toggleable>
+        - 태그의 prop에 `toggleable` 옵션을 주면 접힌다. 
+        - 오른쪽 버튼으로 접기/펴기
+    </Panel>
+```
+</details>
+<br/>
+---
+
+> `Fieldset`\
+https://primereact.org/fieldset/
+
+    <Fieldset legend="headerrrrr" toggleable>
+        - 태그의 prop에 `toggleable` 옵션을 주면 접힌다. 
+        - head에 해당하는 영역을 클릭하면 접기/펴기 
+    </Fieldset>
+
+<details>
+<summary>코드보기</summary>
+```
+    <Fieldset legend="headerrrrr" toggleable>
+        - 태그의 prop에 `toggleable` 옵션을 주면 접힌다. 
+        - head에 해당하는 영역을 클릭하면 접기/펴기 
+    </Fieldset>
+
+```
+</details>
+
+---
+> `Card`\
+https://primereact.org/card/
+
+    <Card> 
+        카드 예시 1 : 제목 없이 사용하는 경우.
+    </Card>
+
+<details>
+<summary>코드보기</summary>
+  ```
+    <Card> 
+        카드 예시 1 : 제목 없이 사용하는 경우.
+    </Card>
+  ```
+</details>
+<br/>
+
+    <Card title ="제목을 prop으로 지정"> 
+        카드 예시 2 : 제목을 사용하는 경우.
+    </Card>
+
+<details>
+<summary>코드보기</summary>
+  ```
+    <Card title ="제목을 prop으로 지정"> 
+        카드 예시 2 : 제목을 사용하는 경우.
+    </Card>
+  ```
+</details>
+<br/>
+
+    <Card subTitle ="작은제목을 prop으로 지정"> 
+        카드 예시 3 : 제목을 사용하는 경우.
+    </Card>
+
+<details>
+<summary>코드보기</summary>
+  ```
+    <Card subTitle ="작은제목을 prop으로 지정"> 
+        카드 예시 3 : 제목을 사용하는 경우.
+    </Card>
+  ```
+</details>
+<br/>
+// OverlayPanel, -> 이거는 단독으로 안쓰고 button이랑 같이 씀. 다이나믹하게 (click or hover) 떠오르는 Panel 
+
+
+OverlayDemo,
+DataTable,
+Column,
+
+---
+# Custom component 
+
+#### GMessage (메세지 박스)
+
+Callout: GCallout,\
+https://primereact.org/message/ 를 응용하여 정의함. 
+
+
+<Card title ="GCallout 메세지 박스">
+
+      - – severity로 메시지 박스의 tone을 조절할 수 있음. 
+      - – severity를 지정하지 않는 경우 적용되는 default severity ="info"
+
+      <GCallout severity ="success" >
+        This is a **<u>success</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="info">
+        This is a **<u>info</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="warn">
+        This is a **<u>warn</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="error">
+        This is a **<u>error</u>** GCallout
+      </GCallout>
+
+      <GCallout>
+        This is a **<u>default</u>** GCallout
+      </GCallout> 
+    <details>
+    <summary>코드보기</summary>
+      ```
+      <GCallout severity ="success" >
+        This is a **<u>success</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="info">
+        This is a **<u>info</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="warn">
+        This is a **<u>warn</u>** GCallout
+      </GCallout>
+
+      <GCallout severity ="error">
+        This is a **<u>error</u>** GCallout
+      </GCallout>
+
+      <GCallout>
+        This is a **<u>default</u>** GCallout
+      </GCallout> 
+      ```
+    </details>
+
+</Card>
+<br/>
+
+
+<Card title ="GMessage 메세지 박스">
+
+    - – severity로 메시지 박스의 tone을 조절할 수 있음. 
+    - – 내용은 "text"로 정의된 내용안에 입력함.
+    - – 마크다운 문법등 적용할 내용이 문단이 넘어가면 입력이 어려우므로 `GCallout`을 사용하는 것이 더 나음 
+
+      <GMessage
+        severity ="success"
+        text="This is a success GMessage  " 
+      />
+
+      <GMessage
+        severity ="info"
+        text="This is a info GMessage  " 
+      />
+
+      <GMessage
+        severity ="warn"
+        text="This is a warn GMessage " 
+      />
+
+      <GMessage
+        severity ="error"
+        text="This is a error GMessage " 
+      />
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+      <GMessage
+        severity ="success"
+        text="This is a success GMessage  " 
+      />
+
+      <GMessage
+        severity ="info"
+        text="This is a info GMessage  " 
+      />
+
+      <GMessage
+        severity ="warn"
+        text="This is a warn GMessage " 
+      />
+
+      <GMessage
+        severity ="error"
+        text="This is a error GMessage " 
+      />
+      ```
+    </details>
+
+</Card>
+<br/>
+
+<Card title ="GMath : 수식입력하기">
+    <GMath>
+      수식 작석용 메세지 (Message랑 동일함. 마진이나 패딩 등 스타일만 따로 적용할 목적으로 컴포넌트 분리 )
+      - – margin 1rem 적용 (기본 메세지보다 좌우 상하 여백 있음.)   
+
+      ---
+
+      - – 실제로 수식을 입력하기 위해서는 `$` 와 `$` 사이에 수식을 입력함
+      - – 설명문서 참고(katex)  https://katex.org/docs/supported
+      - – 예시 $$ x =\dfrac{2a +3b }{4c}$$
+      - –작성 예시 ```$$ x =\dfrac{2a +3b }{4c}$$```
+    </GMath>
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+    <GMath>
+      수식 작석용 메세지 (Message랑 동일함. 마진이나 패딩 등 스타일만 따로 적용할 목적으로 컴포넌트 분리 )
+      - – margin 1rem 적용 (기본 메세지보다 좌우 상하 여백 있음.)   
+
+      ---
+
+      - – 실제로 수식을 입력하기 위해서는 `$` 와 `$` 사이에 수식을 입력함
+      - – 설명문서 참고(katex)  https://katex.org/docs/supported
+      - – 예시 $$ x =\dfrac{2a +3b }{4c}$$
+      - –작성 예시 ```$$ x =\dfrac{2a +3b }{4c}$$```
+    </GMath>
+      ```
+    </details>
+
+</Card>
+<br/>
+
+
+#### Image 이미지 추가하기 
+https://primereact.org/image/
+
+  Image,
+  GCenterImg
+
+<Card title ="1.이미지를 가운데 정렬하여 배치">
+    <GCenterImg src ="/kics/table1.png"/> 
+    <details>
+    <summary>코드보기</summary>
+      ```
+        <GCenterImg src ="/kics/table1.png"/>
+      ```
+    </details>
+    - – 이미지 파일은 publc > 내부 경로에 있음. 
+</Card>
+<br/>
+<Card title ="2.이미지를 가운데 정렬하여 배치 & 캡션 추가 caption ">
+    <GCenterImg src ="/kics/table1.png" caption="<표1> 건전성감독기준 재무상태표 작성방법"/> 
+    <details>
+    <summary>코드보기</summary>
+      ```
+        <GCenterImg src ="/kics/table1.png" caption="<표1> 건전성감독기준 재무상태표 작성방법"/>
+      ```
+    </details>
+</Card>
+<br/>
+<Card title ="3.이미지를 가운데 정렬하여 배치 & 캡션 추가 & 사이즈 조정 :  width">
+    <GCenterImg src ="/kics/table1.png" caption="<표1> 건전성감독기준 재무상태표 작성방법" width = "200"/> 
+    <details>
+    <summary>코드보기</summary>
+      ```
+        <GCenterImg src ="/kics/table1.png" caption="<표1> 건전성감독기준 재무상태표 작성방법" width = "200"/> 
+      ```
+    </details>
+</Card>
+
+#### Chip, Tooltip
+https://primereact.org/chip/
+
+  Chip: GChip,
+  GChip,
+  Cl: GChecklist,
+  GTooltip,
+
+#### Comment (주석)
+  Cmt: GComment,
+  SubText: GSubText,
+
+<Card title ="Cmt 주석">
+
+    여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 
+    <Cmt> 
+        여기에 쓰여진 내용은 주석입니다. 주석은 본문 글꼴대비 0.95rem, 기울임으로 설정되어 있음
+    </Cmt>
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+        여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 여기에 쓰여진 내용은 본문입니다. 
+        <Cmt> 
+            여기에 쓰여진 내용은 주석입니다. 주석은 본문 글꼴대비 0.95rem, 기울임으로 설정되어 있음
+        </Cmt>
+      ```
+    </details>
+</Card>
+
+#### TooltipIcon 
+<Card title = "tooltip">
+
+  GTooltipIcon <GTooltipIcon desc="aaaa"/> sdfasdf
+
+  GTooltipIcon severity =secondary <GTooltipIcon desc="aaaa" severity="secondary"/>
+
+  GTooltipIcon severity =info <GTooltipIcon desc="aaaa" severity="info"/>
+
+  GTooltipIcon severity =warning <GTooltipIcon desc="aaaa" severity="warning"/>
+
+  GTooltipIcon severity =danger <GTooltipIcon desc="aaaa" severity="danger"/>
+
+  GTooltipIcon severity =success <GTooltipIcon desc="aaaa" severity="success"/>
+
+  GTooltipIcon icon =pi pi-comment <GTooltipIcon desc="aaaa" icon="pi pi-comment"/>
+
+  GTooltipIcon severity =success icon =pi pi-comments <GTooltipIcon desc="aaaa" severity="success" icon="pi pi-comments"/>
+
+  GTooltipIcon severity =success icon =pi pi-exclamation-circle <GTooltipIcon desc="aaaa" severity="success" icon="pi pi-exclamation-circle"/>
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+        GTooltipIcon <GTooltipIcon desc="aaaa"/> sdfasdf
+
+        GTooltipIcon severity =secondary <GTooltipIcon desc="aaaa" severity="secondary"/>
+
+        GTooltipIcon severity =info <GTooltipIcon desc="aaaa" severity="info"/>
+
+        GTooltipIcon severity =warning <GTooltipIcon desc="aaaa" severity="warning"/>
+
+        GTooltipIcon severity =danger <GTooltipIcon desc="aaaa" severity="danger"/>
+
+        GTooltipIcon severity =success <GTooltipIcon desc="aaaa" severity="success"/>
+
+        GTooltipIcon icon =pi pi-comment <GTooltipIcon desc="aaaa" icon="pi pi-comment"/>
+
+        GTooltipIcon severity =success icon =pi pi-comments <GTooltipIcon desc="aaaa" severity="success" icon="pi pi-comments"/>
+
+        GTooltipIcon severity =success icon =pi pi-exclamation-circle <GTooltipIcon desc="aaaa" severity="success" icon="pi pi-exclamation-circle"/>
+      ```
+    </details>
+</Card>
+---
+# markdown기본문법
+<Card title ="heading">
+
+    * 1.사용법 : `# ` : `#` + ` `(space)로 사용하며 헤딩 수준에 따라 #의 갯수를 늘린다. 
+    * 2.예시 :
+        - `# h1`
+        - `## h2`
+        - `### h3`
+</Card>
+
+---
+<Card title ="표 table">
+  |헤더1|헤더2|헤더3|헤더4
+  |--|--|--|--|
+  |row1|aa|bb|cc|
+  |row2|dd|ee|ff|
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+      |헤더1|헤더2|헤더3|헤더4
+      |--|--|--|--|
+      |row1|aa|bb|cc|
+      |row2|dd|ee|ff|
+      ```
+    </details>
+
+
+<br/>
+테이블 작성 예시 2
+
+  |헤더1|헤더2|헤더3|헤더4
+  |--|--|--|--|
+  |row1|aa|bb|cc<br/>셀안에 줄바꿈이 필요할때 |
+  |row2|dd|ee<br/>셀안에 줄바꿈이 필요할때22|ff|
+
+    <details>
+    <summary>코드보기</summary>
+      ```
+        |헤더1|헤더2|헤더3|헤더4
+        |--|--|--|--|
+        |row1|aa|bb|cc<br/>셀안에 줄바꿈이 필요할때 |
+        |row2|dd|ee<br/>셀안에 줄바꿈이 필요할때22|ff|
+      ```
+    </details>
+
+</Card>
