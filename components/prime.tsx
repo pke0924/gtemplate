@@ -434,47 +434,45 @@ const GCallout = ({
 };
 
 const GMath = ({
+  title,
   fontSize = "1.0rem",
   width = "100%",
   borderWidth = "0 0 0 6px",
-  marginRatio = "2%",
   children,
 }: {
-  fontSize?: string;
-  width?: string;
-  borderWidth?: string;
-  marginRatio?: string;
-  children: ReactNode;
+    title: string;
+    fontSize?: string;
+    width?: string;
+    borderWidth?: string;
+    children: ReactNode;
 }) => {
+  const _title = title ? title : "";
   const _fontSize = fontSize ? fontSize : "1.0rem";
   const _width = width ? width : "100%";
   const _borderWidth = borderWidth ? borderWidth : "0 0 0 6px";
-  const _marginRatio = marginRatio ? marginRatio : "2%";
-
-  const content = <div style={{ width: "100%" }}>{children}</div>;
 
   return (
-    <div
-      style={{
-        marginLeft: _marginRatio,
-        marginRight: _marginRatio,
-        marginBottom: "10px",
-      }}
-    >
+    <div className="tw-my-2">
       <Message
         style={{
           borderWidth: _borderWidth,
-          justifyContent: "left",
           width: _width,
-          // height: height,
-          alignItems: "start",
           fontSize: _fontSize,
           padding: "10px",
         }}
-        // className="border-primary w-full justify-content-start"
-        severity={"secondary"}
-        // icon= { PrimeIcons.PLUS}
-        content={content}
+        severity={"success"} 
+        content={
+          <div style={{ width: "100%",  textAlign: "left"}}>
+          {title && (
+            <div style={{fontWeight: "bold" }}>
+              {_title}
+            </div>
+          )}
+          {children && (
+            <div style={{ width: "100%", textAlign: "center" }}>{children}</div>
+          )}
+        </div>
+        }
       ></Message>
     </div>
   );
