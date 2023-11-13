@@ -7,36 +7,30 @@ import { getMDXComponent } from "next-contentlayer/hooks";
 
 // import { Accordion, AccordionTab, Card } from "@/components/primecomp";
 
-import { Button } from "primereact/button";
 import { Accordion, AccordionTab } from "primereact/accordion";
 import { Card, CardProps } from "primereact/card";
-// import { Dialog } from "primereact/dialog";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { TabView, TabPanel } from "primereact/tabview";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
+import { Messages } from "primereact/messages";
 import { Fieldset } from "primereact/fieldset";
-import { Message } from "primereact/message";
 // import { PrimeIcons } from "primereact/api";
 import { Image, ImageProps } from "primereact/image";
-import { Chip } from "primereact/chip";
-// import { ChipsProps } from "primereact/chips";
 import { Tooltip } from "primereact/tooltip";
 import { Toast } from "primereact/toast";
-
-// import AppRightbar from "@/components/layout/AppRightbar";
-// import ContentLayout from "@/layout/ContentLayout";
-// import Layout from "@/layout/layout";
-// import AppRightbar from "@/layout/AppRightbar";
-// import type { MDXProps } from "mdx/types";
-
+import { ScrollTop } from "primereact/scrolltop";
+import GHint from "@/components/ghint";
 import OverlayDemo from "@/components/overlayDemo";
+// import OverlayDemoBasel from "@/components/overlayDemoBasel";
+// import TermBasel from "@/components/termBasel";
 import { GChip, GChecklist, GTooltipLink } from "@/components/refcomp";
 
 import {
-  GSubText,
   GCallout,
+  GCallout2,
+  // GHint,
   GMessage,
   G2Col,
   GSheet,
@@ -47,6 +41,7 @@ import {
   Gh1,
   Gh2,
   Gh3,
+  Gh4,
   GListItem,
   GTooltip,
   GTooltipIcon,
@@ -55,27 +50,31 @@ import {
 const usedcomponents = {
   h1: Gh1,
   h2: Gh2,
-  h3: Gh2,
+  h3: Gh3,
   h4: Gh3,
-  h5: Gh3,
-  h6: Gh3,
+  h5: Gh4,
+  h6: Gh4,
   li: GListItem,
   GListItem,
   Accordion,
   AccordionTab,
-  SubText: GSubText,
   TabView,
   TabPanel,
   Card,
   Panel,
   OverlayPanel,
   OverlayDemo,
+  // OverlayDemoBasel,
+  // TermBasel,
   // OverlayDemo: GTooltipLink,
   DataTable,
   Column,
   Fieldset,
   GCallout,
+  GCallout2,
   Callout: GCallout,
+  GHint,
+  Messages,
   M1: GMessage,
   GMessage,
   G2Col,
@@ -94,6 +93,7 @@ const usedcomponents = {
   GTooltip,
   GTooltipIcon,
   // GToast,
+  ScrollTop,
 };
 
 // const MDXContent = getMDXComponent(doc);
@@ -105,7 +105,12 @@ const usedcomponents = {
 
 const GMDX = ({ code }: { code: string }): React.ReactNode => {
   const MDXContent = getMDXComponent(code);
-  return <MDXContent components={usedcomponents} />;
+  return (
+    <div>
+      <MDXContent components={usedcomponents} />
+      <ScrollTop />
+    </div>
+  );
 };
 
 export default GMDX;

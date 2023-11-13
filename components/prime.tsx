@@ -1,14 +1,6 @@
 "use client";
 import React, { Children, useRef, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
-// import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
-// import 'primereact/resources/themes/lara-light-indigo/theme.css';
-// import 'primereact/resources/themes/lara-light-indigo/theme.css';
-// import "./theme.module.scss";
-// import '../styles/goftheme.css';
-// import 'primereact/resources/primereact.min.css';
-// import 'primeflex/primeflex.css';
-// import 'primeicons/primeicons.css';
 import { classNames } from "primereact/utils";
 import { Button } from "primereact/button";
 // import { Accordion, AccordionTab, Card } from "./primecomp";
@@ -24,6 +16,7 @@ import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
 import { Fieldset } from "primereact/fieldset";
 import { Message } from "primereact/message";
+// import { Messages } from "primereact/messages";
 // import { PrimeIcons } from "primereact/api";
 // import { Image, ImageProps } from "primereact/image";
 import Image from "next/image";
@@ -31,7 +24,7 @@ import { Chip } from "primereact/chip";
 import { Tooltip } from "primereact/tooltip";
 import { Toast } from "primereact/toast";
 
-import { Kics, Ifrs, Fs, Post } from "@/.contentlayer/generated";
+import { Kics, Ifrs, Fs, Post, Basel, Fm, Bm } from "@/.contentlayer/generated";
 // import { string } from "prop-types";
 
 // import checklist from "@/public/data/check.json";
@@ -122,16 +115,36 @@ const Gh2 = ({ children }: { children?: ReactNode }) => {
 };
 
 const Gh3 = ({ children }: { children?: ReactNode }) => {
+
   const titleList = children ? children.toString().split("[#") : [];
   const title = titleList ? titleList[0].trim() : "";
+
   const anchor =
     titleList.length > 1
       ? titleList[1].replace("]", "").toLowerCase()
       : title.split(" ").join("-").toUpperCase();
+
   return (
     <h5 className="!tw-mt-8 !tw-leading-5" id={anchor}>
       {title}
     </h5>
+  );
+};
+
+const Gh4 = ({ children }: { children?: ReactNode }) => {
+
+  const titleList = children ? children.toString().split("[#") : [];
+  const title = titleList ? titleList[0].trim() : "";
+
+  const anchor =
+    titleList.length > 1
+      ? titleList[1].replace("]", "").toLowerCase()
+      : title.split(" ").join("-").toUpperCase();
+
+  return (
+    <h6 className="!tw-mt-8 !tw-leading-5" id={anchor}>
+      {title}
+    </h6>
   );
 };
 
@@ -153,8 +166,8 @@ const GNavigation = ({
   prev,
   next,
 }: {
-  prev?: Kics | Ifrs | Post | Fs;
-  next?: Kics | Ifrs | Post | Fs;
+  prev?: Kics | Ifrs | Post | Fs | Basel |Fm | Bm;
+  next?: Kics | Ifrs | Post | Fs | Basel |Fm | Bm;
 }) => {
   const prevUrl = prev ? prev.url : "#";
   const nextUrl = next ? next.url : "#";
@@ -167,7 +180,7 @@ const GNavigation = ({
           className={classNames({ "tw-hidden": prev === null })}
         >
           <Button
-            className="w-full"
+            className="w-full !tw-text-lg !tw-font-bold !tw-py-5 "
             label={prev?.title}
             outlined
             size="large"
@@ -181,7 +194,7 @@ const GNavigation = ({
           className={classNames({ "tw-hidden": next === null })}
         >
           <Button
-            className="w-full"
+            className="w-full !tw-text-lg !tw-font-bold !tw-py-5 "
             label={next?.title}
             outlined
             size="large"
@@ -270,7 +283,7 @@ const GNavigation1 = ({
 
 const GListItem = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <li className="tw-list-none tw-pl-8 -tw-indent-4 tw-py-1">
+    <li className="tw-list-none tw-pl-4 -tw-indent-4 tw-py-1 md:tw-pl-8">
       {/* <li className="tw-list-none list-inside tw-pl-8  -tw-indent-6 !tw-leading-10 tw-subpixel-antialiased !tw-leading-relaxed"> */}
       {children}
     </li>
@@ -352,7 +365,7 @@ const G2Col = ({ children }: { children: ReactNode[] }) => {
   // const children = props.children;
   // const child1 = children.
   return (
-    <div className="grid">
+    <div className="grid /*tw-border-t tw-border-b*/ !tw-m-1" >
       <div className="col-12 md:col-6">{children[0]}</div>
       <div className="col-12 md:col-6">{children[1]}</div>
     </div>
@@ -375,31 +388,24 @@ const GMessage = ({
 }) => {
   const content = (
     <div>
-      {/* <i className={icon} style= {{paddingRight: '5px'}}></i> */}
-      {/* <span className={icon} style= {{ fontSize: '1rem' , paddingRight: '10px'}}></span> */}
-
       {text}
     </div>
   );
   return (
     <Message
       style={{
-        // border: 'solid #696cff',
-        // borderWidth: '0 0 0 6px',
         borderWidth: borderWidth,
-        // justifyContent: 'left',
         display: "block",
         width: width,
       }}
-      // className="border-primary w-full justify-content-start"
       severity={severity}
-      // icon= {icon}
       content={text}
     ></Message>
   );
 };
 
-const GCallout = ({
+// 기존 Callout에 제목을 추가함.
+const GCallout2 = ({
   severity,
   width,
   borderWidth,
@@ -430,6 +436,80 @@ const GCallout = ({
       // icon= { PrimeIcons.PLUS}
       content={content}
     ></Message>
+  );
+};
+
+// interface GHintProps {
+//   severity?: "success" | "info" | "warn" | "error";
+//   summary?: string;
+//   children: React.ReactNode;
+// }
+
+// const GHint: React.FC<GHintProps> = ({
+//   severity = "info",
+//   summary = "",
+//   children,
+// }: GHintProps) => {
+//   const msgs = useRef<Messages | null>(null);
+
+//   useEffect(() => {
+//     const messageOptions = {
+//       sticky: true,
+//       severity: severity,
+//       summary: summary,
+//       detail: children,
+//       icon: false,
+//       closable: false 
+      
+//     };
+
+//     msgs.current?.show(messageOptions);
+//   }, [severity, summary, children]);
+
+//   return (
+//     <Messages ref={msgs} />
+//   );
+// };
+
+const GCallout = ({
+  title,
+  width = "100%",
+  severity,
+  children,
+}: {
+    title: string;
+    severity?: "success" | "info" | "warn" | "error" | undefined;
+    width?: string;
+    children: ReactNode;
+}) => {
+  const _title = title ? "❱❱ " + title + " " : "";
+  const _severity = severity ? severity : "info";
+  const _width = width ? width : "100%";
+
+  return (
+    <div className="tw-my-5">
+    <Message
+      style={{
+        justifyContent: "left",
+        alignItems: "start",
+        padding: "1rem",
+        width: _width,
+      }}
+      severity={_severity}
+      content={
+        <div style={{ width: "100%",  textAlign: "left"}}>
+        {title && (
+          <div style={{fontWeight: "700", marginBottom:"0.7rem", fontSize:"1.03rem" , fontFamily:"NotoSansKR" /*fontStyle :"italic" , textDecoration: "underline" , textDecorationThickness: "0.2px"*/ }}>
+            {_title}
+          </div>
+        )}
+        {children && (
+          <div style={{ width: "100%"}}>{children}</div>
+        )}
+      </div>
+      }
+    ></Message>
+    </div>
   );
 };
 
@@ -464,7 +544,7 @@ const GMath = ({
         content={
           <div style={{ width: "100%",  textAlign: "left"}}>
           {title && (
-            <div style={{fontWeight: "bold" }}>
+            <div style={{fontWeight: "500", fontFamily: "NotoSansKR" }}>
               {_title}
             </div>
           )}
@@ -477,60 +557,6 @@ const GMath = ({
     </div>
   );
 };
-
-// 특정 영역 주석용 폰트사이즈 작게
-const GSubText = ({ children }: { children: ReactNode }) => {
-  // const [fontSize, setFontSize] = useState('1rem');
-  // const contentStyle = {
-  //     margin: '0',
-  //     padding: '0',
-  //   };
-  // useEffect(() => {setFontSize('0.8rem');}, []);
-
-  return (
-    <div style={{ fontSize: "0.75rem" }}>
-      <ul
-        style={{
-          margin: "0px",
-          padding: "0px",
-        }}
-      >
-        {children}
-      </ul>
-    </div>
-  );
-};
-
-// 수식에서 추가 설명용
-// const GCard = ({
-//   fontSize = "0.9rem",
-//   props,
-//   children,
-// }: {
-//   fontSize: string;
-//   props: CardProps;
-//   children: ReactNode;
-// }) => {
-//   const cardStyle = {
-//     fontSize,
-//     //  background: '#ffffff', // 배경
-//     border: "none", // 테두리 없음
-//     padding: "0",
-//   };
-
-//   const contentStyle = {
-//     margin: "0",
-//     padding: "0",
-//   };
-
-//   return (
-//     <Card {...props} style={cardStyle}>
-//       <div style={contentStyle}>
-//         <ul style={contentStyle}>{children}</ul>
-//       </div>
-//     </Card>
-//   );
-// };
 
 // comment
 const GComment = ({
@@ -550,25 +576,23 @@ const GComment = ({
     border: "none", // 테두리 없음
     // padding: "0",
     fontWeight: "400",
-    color: "#526a76",
+    color: "var(--surface-700)",
     letterSpacing: "-0.04em"
   };
 
   const contentStyle = {
-    // margin: "0",
-    // padding: pl+"rem"
-    // borderTop: "0.7px double #bbc7cd",
-          paddingTop : "0.3rem",
-          marginTop : "0.5rem",
-          marginLeft : "1rem",
-          background: `linear-gradient(to right, #bbc7cd 50%, transparent 50%)`,
-          backgroundSize: "100% 1px", 
-          backgroundRepeat: "no-repeat",
+      // borderTop: "0.7px double #bbc7cd",
+      paddingTop : "0.3rem",
+      marginTop : "0.5rem",
+      marginLeft : "1rem",
+      background: `linear-gradient(to right, #bbc7cd 50%, transparent 50%)`,
+      backgroundSize: "100% 1px", 
+      backgroundRepeat: "no-repeat",
   };
 
   return (
     <div {...props} style={divStyle}>
-      <div style={contentStyle} className="tw-pb-2 tw-italic ... ">
+      <div style={contentStyle} className="tw-pb-2 ... ">
         {children}
       </div>
     </div>
@@ -599,7 +623,7 @@ const GCenterImg = ({
   // imageStyle: { display: string; margin: string };
 } & React.ComponentPropsWithoutRef<typeof Image>) => {
   // const imageStyle = { display: "block", margin: "0 auto" };
-
+  const alt = caption;
   return (
     <div style={{ textAlign: "center" }}>
       {/* <Image src={props.src} width={width1} style={imageStyle} /> */}
@@ -609,8 +633,9 @@ const GCenterImg = ({
         className="tw-mx-auto tw-block tw-my-2"
         // style={imageStyle}
         {...rest}
+        alt={alt} // alt 속성을 caption 값으로 설정
       />
-      {caption && <p className="tw-pb-4 tw-text-gray-500 tw-text-sm" >&lt;{caption}&gt;</p>}
+      {caption && <p className="tw-pb-4 tw-text-gray-500 tw-text-base" >&lt;{caption}&gt;</p>}
     </div>
   );
 };
@@ -664,7 +689,7 @@ const GTooltip = ({ label, desc }: { label: string; desc: string }) => {
         label={label}
         className="tooltip-target !tw-py-0 !tw-px-1 tw-italic  tw-text-current tw-underline"
         data-pr-tooltip={desc}
-        data-pr-position="left"
+        data-pr-position="bottom"
         data-pr-at="left bottom+2"
         data-pr-my="left top"
       />
@@ -674,8 +699,8 @@ const GTooltip = ({ label, desc }: { label: string; desc: string }) => {
 
 const GTooltipIcon = ({
   desc,
-  icon = "pi pi pi-question-circle", /* pi-exclamation-circle */
-  severity = "secondary", /* secondary success */
+  icon = "pi pi-question-circle",
+  severity = "info",//  secondary
 }: {
   desc: string;
   icon: string;
@@ -683,7 +708,7 @@ const GTooltipIcon = ({
 }) => {
   return (
     <>
-      <Tooltip target=".tooltip-target" style={{ width: "400px" }} />
+      <Tooltip target=".tooltip-target"/>
       <Button
         icon={icon}
         text
@@ -691,8 +716,8 @@ const GTooltipIcon = ({
         severity={severity}
         className="tooltip-target !tw-py-0 !tw-px-0 !tw-align-baseline !tw-w-6"
         data-pr-tooltip={desc}
-        data-pr-position="left"
-        data-pr-at="left bottom+2"
+        data-pr-position="bottom"
+        data-pr-at="left bottom+4"
         data-pr-my="left top"
       />
     </>
@@ -723,15 +748,17 @@ export {
   GAccordion,
   GAccordionTab,
   GCallout,
+  GCallout2,
+  // GHint,
   GMessage,
   G2Col,
   GSheet,
   GMath,
-  GSubText,
   GCenterImg,
   Gh1,
   Gh2,
   Gh3,
+  Gh4,
   GListItem,
   GChip,
   GChecklist,
