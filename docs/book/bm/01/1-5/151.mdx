@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 ---
 title: 1.5.1. 듀레이션(Duration)
 description: 
 ---
-
-# Ⅰ. 채권의 개요
 # 5. 듀레이션과 볼록성
 
 ## 가. 듀레이션(Duration)
@@ -15,72 +12,86 @@ description:
 
 즉, 듀레이션이란 채권 투자자금의 평균 회수기간이라는 의미로 채권에 투자하는 경우 각 시점에 있어 현재가치로 환산된 현금흐름이 총 현금흐름에서 차지하는 비중을 가중치로 사용하여 채권의 현금흐름시점에 곱하여 산출한 『현재가치로 환산된 가중평균만기』로서 채권투자 시 현재가치 1원이 상환되는데 걸리는 평균기간을 의미합니다.
 
+<GCallout severity="success">
 <GMath>
      $$ Duration = \sum\left(기간\right)\cdot\dfrac{기간별 현금흐름의 현재가치}{채권가격}$$ 
-<br/>
-              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}\cdot{t}}{\left(1+r\right)^{t}}}{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}}{\left(1+r\right)^{t}}} $$
-<br/>
-              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$
-    <Cmt>* $$r$$ : 시장수익률</Cmt>
-
 </GMath>
+<GMath>
+              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}\cdot{t}}{\left(1+r\right)^{t}}}{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}}{\left(1+r\right)^{t}}} $$
+</GMath>
+<GMath>
+              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$
+</GMath>
+<Cmt>
+* $$r$$ : 시장수익률
+</Cmt>
+</GCallout>
 
 듀레이션은 수시로 발생하는 이자지급 때문에 잔존기간(TTM : Term To Maturity) 보다 짧으며, 또한 이자지급의 시간가치를 고려하므로 WATM$$^{1)}$$보다 짧습니다. 중간에 이자지급이 없는 할인채의 경우에는 모든 현금흐름이 만기에 한꺼번에 발생하기 때문에 TTM, WATM 및 듀레이션은 동일합니다.
 
 <Cmt>
     1\) 듀레이션(duration)이 등장하기 이전에는 가중평균상환기간(WATM：Weighted Average Term to Maturity)을 주로 이용하여 측정하였음. 가중평균상환기간(WATM)은 각 기간마다 발생하는 이자 및 상환되는 원금이 총 현금흐름에서 차지하는 비중을 계산하여 여기에 각 연수를 곱하여 만든 것임.
         
-    <center>    $$ WATM = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$ 
-        ($$CF_t$$：$$t$$기에 발생하는 현금흐름) </center>
-    
+    <center>
+        $$ WATM = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$ 
+        ($$CF_t$$：$$t$$기에 발생하는 현금흐름) 
+    </center>
     WATM은 채권으로부터 발생하는 모든 현금흐름의 평균회수기간으로서 마지막에 상환되는 원금뿐만 아니라 기간중에 발생하는 모든 이자지급을 고려하므로 잔존기간(TTM, Term To Maturity)보다 기간이 짧으며 이자지급액이 클수록 만기전에 현금지급액이 많아지므로 WATM은 짧아짐. WATM은 채권으로부터 모든 현금흐름을 고려하는 장점은 있으나 현금흐름의 시간가치를 고려하지 않는 단점이 있음.
 </Cmt>
 
-<Card title="[예제1]">
+<GCallout severity="warn" title="[예제1]">
 표면이율 3.755%, 이자지급단위가 6개월, 잔존만기 2년인 국고채권의 시장수익률이 3.561%로 형성되어 있을 때 듀레이션을 계산하면 아래와 같습니다. 
 
 <GCenterImg src="/bm/150_1_tab.jpg" />
-</Card>
-<br/>
-<Card title="[예제2: 이자지급일 사이에서의 듀레이션 계산]">
+</GCallout>
+
+<GCallout severity="warn" title="[예제2: 이자지급일 사이에서의 듀레이션 계산]">
 발행조건이 다음과 같을 때 ’14.11.13의 매매수익률 2.139%로 듀레이션을 측정하면 아래와 같습니다.
-* ＊[발행조건] 발행일 ’13.12.10, 만기일 ’16.12.10, 표면금리 3.00%, 이자지급단위 6개월
+* **[발행조건]** 발행일 ’13.12.10, 만기일 ’16.12.10, 표면금리 3.00%, 이자지급단위 6개월
 
 <GCenterImg src="/bm/150_2_tab.jpg" />
-</Card>
+</GCallout>
 
 이와 같이, 미래 현금흐름의 현재가치를 반영한 가중평균 실질만기를 일반적인 듀레이션이라 통칭하고 도입자의 이름을 따서 매컬리 듀레이션(Macaulay Duration)이라고도 합니다. Macaulay Duration은 다음 공식을 이용하여 계산할 수도 있습니다.
 
+<GCallout severity="success">
 <GMath>
 $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\{\left(1+y\right)^{n}-1\}+y}\right]}{m} $$
-<Cmt> $$y$$：1기간의 수익률, $$c$$：1기간 기준이 표면금리, $$m$$：연간 이자지급횟수, $$n$$： 만기와 연간 이자지급횟수의 곱</Cmt>
 </GMath>
+<Cmt>
+ $$y$$：1기간의 수익률, $$c$$：1기간 기준이 표면금리, $$m$$：연간 이자지급횟수, $$n$$： 만기와 연간 이자지급횟수의 곱
+</Cmt>
+</GCallout>
 
 ### (2) 듀레이션의 특성
 
 채권의 듀레이션은 다음과 같은 몇가지 특성을 가지고 있습니다.
 
-#### 1) 이표채권의 듀레이션은 항상 채권의 만기 또는 만기까지의 잔여기간보다 짧다.
+#### ㈎ 이표채권의 듀레이션은 항상 채권의 만기 또는 만기까지의 잔여기간보다 짧다.
 
 채권만기는 최종 현금지급시점을 나타내는데 반하여 듀레이션은 만기 전에 발생하는 모든 현금흐름을 가중치로 한 평균상환기간입니다. 듀레이션 개념차원에서 보면 만기 $$m$$은 $$W(PV_m)=1$$로 보고 여타 기간에 대해서는 가중치 0을 부여한 것과 같습니다．따라서 만기 이전에 현금흐름이 1회라도 발생하면 만기 $$m$$에 대한 가중치가 1보다 작아지므로 듀레이션은 만기보다 짧게 형성됩니다.
 
+<GCallout severity="warn">
 <GMath>
     $$ D = W\left(PV_1\right)\times 1+W\left(PV_2\right)\times 2+W\left(PV_3\right)\times 3+ \cdots +W\left(PV_m\right)\times m $$
-    <br/>
-    단, $$W\left(PV_t\right) = \dfrac{PV_t}{\displaystyle\sum_{t=1}^{m}PV_t}$$
 </GMath>
+<Cmt>
+    단, $$W\left(PV_t\right) = \dfrac{PV_t}{\displaystyle\sum_{t=1}^{m}PV_t}$$
+</Cmt>
+</GCallout>
 
-#### 2) 듀레이션은 표면금리와 역 상관관계에 있다.
+#### ㈏ 듀레이션은 표면금리와 역 상관관계에 있다.
 
 만기가 동일한 채권일지라도 표면금리가 높은 채권은 표면금리가 낮은 채권에 비하여 듀레이션이 짧습니다. 표면금리가 높을수록 전체 현금흐름 중 만기 전에 수취되는 현금수입 비중이 높아짐으로써 채권투자액이 최종 원금수취 이전에 상대적으로 단기간 내에 회수될 수 있다는 것을 의미합니다. 역으로 표면금리가 낮으면 만기에 가까운 기간에 대한 가중치가 커지므로 듀레이션은 길어집니다.
 
-#### 3) 채권만기까지의 기간이 장기일수록 듀레이션도 장기화한다.
+#### ㈐ 채권만기까지의 기간이 장기일수록 듀레이션도 장기화한다.
 
 듀레이션 역시 일종의 만기개념이므로 만기에 비례하여 증가하는 것이 일반적입니다. 그러나 만기까지의 기간이 장기일수록 현금흐름의 현재가치는 상대적으로 더 크게 감소(할인기간의 승수효과 고려)하기 때문에 듀레이션은 직선형이 아니며 완만한 체감형태의 곡선을 나타내게 됩니다.
 
 또한 무한 만기를 가정하는 경우에도 듀레이션 값은 $$\dfrac{(1+r)}{r}$$에 수렴하는 유한한 값을 갖게 됩니다.
 
-<Fieldset legend="영구채의 듀레이션" toggleable>
+<Accordion activeIndex={[]}>
+<AccordionTab header="[참 고] 영구채의 듀레이션">
 
 영구채의 경우 각 기간별 가중치는 다음과 같습니다.
 
@@ -92,9 +103,11 @@ $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\
 
 <GMath>
     $$ W\left(PV_t\right) = \dfrac{PV_t}{\displaystyle\sum_{t=1}^{\infin}PV_t} = \dfrac{\dfrac{c}{\left(1+r\right)^{t}}}{{\dfrac{c}{r}}} = \dfrac{r}{\left(1+r\right)^t} $$
-<br/>
+</GMath>
+<GMath>
     $$ D = \dfrac{r}{\left(1+r\right)}\times 1+\dfrac{r}{\left(1+r\right)^2}\times 2+\dfrac{r}{\left(1+r\right)^3}\times 3+\dfrac{r}{\left(1+r\right)^4}\times 4+\cdots \implies $$ ①
-<br/>
+</GMath>
+<GMath>
     $$ \dfrac{1}{\left(1+r\right)}\times D = \dfrac{r}{\left(1+r\right)^2}\times 1+\dfrac{r}{\left(1+r\right)^3}\times 2+\dfrac{r}{\left(1+r\right)^4}\times 3+\cdots \implies $$ ② = ①$$\times\dfrac{1}{(1+r)}$$
 </GMath>
 
@@ -103,21 +116,22 @@ $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\
 <GMath>
     $$ D = \dfrac{1+r}{r} $$
 </GMath>
-</Fieldset>
+</AccordionTab>
+</Accordion>
 
 일반적으로 표면이자율이 만기수익률보다 높거나 만기수익률과 같은 경우에는 만기가 증가하면 듀레이션 역시 $$\dfrac{(1+r)}{r}$$을 향하여 계속적으로 증가하고, 표면이자율이 0보다 크면서 만기수익률보다 낮은 경우에는 만기가 증가함에 따라 듀레이션은 처음에는 증가하다 최고점에 도달한 후 감소하면서 $$\dfrac{(1+r)}{r}$$에 수렴하는 것으로 알려져 있습니다<GTooltipIcon desc="윤평식, “고정수익증권론”, 2001, p119" severity="success" icon="pi pi-exclamation-circle"/>.
 
-#### 4) 채권수익률이 낮아질수록 듀레이션 값은 커지게 된다.
+#### ㈑ 채권수익률이 낮아질수록 듀레이션 값은 커지게 된다.
 
 할인율로 작용하는 채권수익률이 낮아지면 할인율의 승수효과와 현금흐름의 만기집중으로 인해 만기에 가까운 현금흐름의 가중치가 상대적으로 크게 증가합니다. 따라서 채권수익률이 낮아질수록 듀레이션은 커지게 되는 역의 상관관계를 갖습니다.
 
 듀레이션이 가중평균만기라는 관점에서 보면 채권수익률이 높아질수록 표면이자수입의 재투자 수익이 증가하여 상대적으로 많은 현금수입이 조기에 실현될 수 있으므로 채권수익률이 높아질수록 듀레이션은 작아지게 됩니다.
 
-#### 5) 할인채의 듀레이션은 만기와 일치한다.
+#### ㈒ 할인채의 듀레이션은 만기와 일치한다.
 
 할인채의 경우 만기 전에는 이자지급이 없고 만기에 상환금액만이 지급되기 때문에 할인채의 듀레이션은 항상 그 만기와 일치합니다.
 
-#### 6) 만기일이 가까워질수록 듀레이션도 감소한다.
+#### ㈓ 만기일이 가까워질수록 듀레이션도 감소한다.
 
 만기일에 근접함에 따라 잔존만기가 감소하므로 듀레이션도 감소합니다. 할인채의 경우 듀레이션은 만기와 같으므로 동일한 속도로 감소하나 이표채의 경우 만기일에 가까울수록(잔존만기가 감소할 수록) 듀레이션이 감소하는 속도는 증가합니다.
 
@@ -150,7 +164,7 @@ $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\
 <br/>
         * $$ \therefore \left(\dfrac{dP}{dr}\right)\times\left(\dfrac{1}{P}\right) = \dfrac{-1}{\left(1+r\right)}\times D $$
 </GMath>
-* ④ 채권의 이자율탄력성 = 채권가격변화율(%) / 이자율변화율(%) = $$ \left(-\right)\frac{dP/P}{dr/r} $$  이므로
+* ④ 채권의 이자율탄력성 = 채권가격변화율(%) / 이자율변화율(%) = $$ \left(-\right)\dfrac{dP/P}{dr/r} $$  이므로
 <GMath>
     * $$ \therefore \left(\dfrac{dP}{dr}\right)\times\left(\dfrac{r}{P}\right) = \left(-\right)\dfrac{r}{\left(1+r\right)}\times D $$
 </GMath>
@@ -165,13 +179,13 @@ $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\
 
 채권가격의 변화는 듀레이션과 수익률 변화로 표현되며, 이는 만기가 상이하더라도 듀레이션이 동일하면 채권가격의 변화율도 동일함을 의미합니다.
 
-<Card title="[예제3]">
+<GCallout severity="warn" title="[예제3]">
 표면이율 3.75%, 이자지급단위가 6개월, 잔존만기 2년인 국고채권의 시장수익률이 3.56%로 형성되어 있을 때 듀레이션은 3.89115(반기)입니다. 이때 시장수익률이 3.80%으로 급등할 경우 듀레이션을 이용한 가격변화폭을 계산하면 아래와 같습니다.
 
 <GMath>
     $$ dP = \left(-\right)3.89115\times\dfrac{\dfrac{\left(0.038-0.0356\right)}{2}}{\left(1+\dfrac{0.0356}{2}\right)}\times 10,036.36738 = -46.04원 $$
 </GMath>
-</Card>
+</GCallout>
 
 ### (4) 수정듀레이션
 
@@ -187,193 +201,3 @@ $$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\
 
 일반적으로 Macaulay Duration은 가중평균잔존기간으로 수익률변동위험을 회피하기 위한 면역 전략에 활용되는 반면 수정듀레이션은 채권가격변동성을 측정하는 지표로 활용되고 있습니다.
 
-=======
----
-title: 1.5.1. 듀레이션(Duration)
-description: 
----
-
-# Ⅰ. 채권의 개요
-# 5. 듀레이션과 볼록성
-
-## 가. 듀레이션(Duration)
-
-### (1) 듀레이션의 의미 및 계산
-
-듀레이션이라는 개념은 채권의 가격변동에 영향을 미치는 만기와 표면금리 효과를 종합한 것으로서 1938년 Frederick R. Macaulay가 도입하였습니다.
-
-즉, 듀레이션이란 채권 투자자금의 평균 회수기간이라는 의미로 채권에 투자하는 경우 각 시점에 있어 현재가치로 환산된 현금흐름이 총 현금흐름에서 차지하는 비중을 가중치로 사용하여 채권의 현금흐름시점에 곱하여 산출한 『현재가치로 환산된 가중평균만기』로서 채권투자 시 현재가치 1원이 상환되는데 걸리는 평균기간을 의미합니다.
-
-<GMath>
-     $$ Duration = \sum\left(기간\right)\cdot\dfrac{기간별 현금흐름의 현재가치}{채권가격}$$ 
-<br/>
-              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}\cdot{t}}{\left(1+r\right)^{t}}}{\displaystyle\sum_{t=1}^{n}\dfrac{CF_{t}}{\left(1+r\right)^{t}}} $$
-<br/>
-              $$ = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$
-    <Cmt>* $$r$$ : 시장수익률</Cmt>
-
-</GMath>
-
-듀레이션은 수시로 발생하는 이자지급 때문에 잔존기간(TTM : Term To Maturity) 보다 짧으며, 또한 이자지급의 시간가치를 고려하므로 WATM$$^{1)}$$보다 짧습니다. 중간에 이자지급이 없는 할인채의 경우에는 모든 현금흐름이 만기에 한꺼번에 발생하기 때문에 TTM, WATM 및 듀레이션은 동일합니다.
-
-<Cmt>
-    1\) 듀레이션(duration)이 등장하기 이전에는 가중평균상환기간(WATM：Weighted Average Term to Maturity)을 주로 이용하여 측정하였음. 가중평균상환기간(WATM)은 각 기간마다 발생하는 이자 및 상환되는 원금이 총 현금흐름에서 차지하는 비중을 계산하여 여기에 각 연수를 곱하여 만든 것임.
-        
-    <center>    $$ WATM = \dfrac{\displaystyle\sum_{t=1}^{n}PV\left(CF\right)_{t}\cdot{t}}{\displaystyle\sum_{t=1}^{n}PV\left(CF_{t}\right)} $$ 
-        ($$CF_t$$：$$t$$기에 발생하는 현금흐름) </center>
-    
-    WATM은 채권으로부터 발생하는 모든 현금흐름의 평균회수기간으로서 마지막에 상환되는 원금뿐만 아니라 기간중에 발생하는 모든 이자지급을 고려하므로 잔존기간(TTM, Term To Maturity)보다 기간이 짧으며 이자지급액이 클수록 만기전에 현금지급액이 많아지므로 WATM은 짧아짐. WATM은 채권으로부터 모든 현금흐름을 고려하는 장점은 있으나 현금흐름의 시간가치를 고려하지 않는 단점이 있음.
-</Cmt>
-
-<Card title="[예제1]">
-표면이율 3.755%, 이자지급단위가 6개월, 잔존만기 2년인 국고채권의 시장수익률이 3.561%로 형성되어 있을 때 듀레이션을 계산하면 아래와 같습니다. 
-
-<GCenterImg src="/bm/150_1_tab.jpg" />
-</Card>
-<br/>
-<Card title="[예제2: 이자지급일 사이에서의 듀레이션 계산]">
-발행조건이 다음과 같을 때 ’14.11.13의 매매수익률 2.139%로 듀레이션을 측정하면 아래와 같습니다.
-* ＊[발행조건] 발행일 ’13.12.10, 만기일 ’16.12.10, 표면금리 3.00%, 이자지급단위 6개월
-
-<GCenterImg src="/bm/150_2_tab.jpg" />
-</Card>
-
-이와 같이, 미래 현금흐름의 현재가치를 반영한 가중평균 실질만기를 일반적인 듀레이션이라 통칭하고 도입자의 이름을 따서 매컬리 듀레이션(Macaulay Duration)이라고도 합니다. Macaulay Duration은 다음 공식을 이용하여 계산할 수도 있습니다.
-
-<GMath>
-$$ D = \dfrac{\left[\dfrac{1+y}{y}-\dfrac{\left(1+y\right)+n\left(c-y\right)}{c\{\left(1+y\right)^{n}-1\}+y}\right]}{m} $$
-<Cmt> $$y$$：1기간의 수익률, $$c$$：1기간 기준이 표면금리, $$m$$：연간 이자지급횟수, $$n$$： 만기와 연간 이자지급횟수의 곱</Cmt>
-</GMath>
-
-### (2) 듀레이션의 특성
-
-채권의 듀레이션은 다음과 같은 몇가지 특성을 가지고 있습니다.
-
-#### 1) 이표채권의 듀레이션은 항상 채권의 만기 또는 만기까지의 잔여기간보다 짧다.
-
-채권만기는 최종 현금지급시점을 나타내는데 반하여 듀레이션은 만기 전에 발생하는 모든 현금흐름을 가중치로 한 평균상환기간입니다. 듀레이션 개념차원에서 보면 만기 $$m$$은 $$W(PV_m)=1$$로 보고 여타 기간에 대해서는 가중치 0을 부여한 것과 같습니다．따라서 만기 이전에 현금흐름이 1회라도 발생하면 만기 $$m$$에 대한 가중치가 1보다 작아지므로 듀레이션은 만기보다 짧게 형성됩니다.
-
-<GMath>
-    $$ D = W\left(PV_1\right)\times 1+W\left(PV_2\right)\times 2+W\left(PV_3\right)\times 3+ \cdots +W\left(PV_m\right)\times m $$
-    <br/>
-    단, $$W\left(PV_t\right) = \dfrac{PV_t}{\displaystyle\sum_{t=1}^{m}PV_t}$$
-</GMath>
-
-#### 2) 듀레이션은 표면금리와 역 상관관계에 있다.
-
-만기가 동일한 채권일지라도 표면금리가 높은 채권은 표면금리가 낮은 채권에 비하여 듀레이션이 짧습니다. 표면금리가 높을수록 전체 현금흐름 중 만기 전에 수취되는 현금수입 비중이 높아짐으로써 채권투자액이 최종 원금수취 이전에 상대적으로 단기간 내에 회수될 수 있다는 것을 의미합니다. 역으로 표면금리가 낮으면 만기에 가까운 기간에 대한 가중치가 커지므로 듀레이션은 길어집니다.
-
-#### 3) 채권만기까지의 기간이 장기일수록 듀레이션도 장기화한다.
-
-듀레이션 역시 일종의 만기개념이므로 만기에 비례하여 증가하는 것이 일반적입니다. 그러나 만기까지의 기간이 장기일수록 현금흐름의 현재가치는 상대적으로 더 크게 감소(할인기간의 승수효과 고려)하기 때문에 듀레이션은 직선형이 아니며 완만한 체감형태의 곡선을 나타내게 됩니다.
-
-또한 무한 만기를 가정하는 경우에도 듀레이션 값은 $$\dfrac{(1+r)}{r}$$에 수렴하는 유한한 값을 갖게 됩니다.
-
-<Fieldset legend="영구채의 듀레이션" toggleable>
-
-영구채의 경우 각 기간별 가중치는 다음과 같습니다.
-
-<GMath>
-    $$ PV_t = \dfrac{c}{\left(1+r\right)^{t}}$$ , $$ \displaystyle\sum_{t=1}^{\infin}PV_t = \dfrac{c}{r} $$
-</GMath>
-
-에서 (단, $$c$$ = 이표 이자액)
-
-<GMath>
-    $$ W\left(PV_t\right) = \dfrac{PV_t}{\displaystyle\sum_{t=1}^{\infin}PV_t} = \dfrac{\dfrac{c}{\left(1+r\right)^{t}}}{{\dfrac{c}{r}}} = \dfrac{r}{\left(1+r\right)^t} $$
-<br/>
-    $$ D = \dfrac{r}{\left(1+r\right)}\times 1+\dfrac{r}{\left(1+r\right)^2}\times 2+\dfrac{r}{\left(1+r\right)^3}\times 3+\dfrac{r}{\left(1+r\right)^4}\times 4+\cdots \implies $$ ①
-<br/>
-    $$ \dfrac{1}{\left(1+r\right)}\times D = \dfrac{r}{\left(1+r\right)^2}\times 1+\dfrac{r}{\left(1+r\right)^3}\times 2+\dfrac{r}{\left(1+r\right)^4}\times 3+\cdots \implies $$ ② = ①$$\times\dfrac{1}{(1+r)}$$
-</GMath>
-
-①에서 ②를 차감한 후, D에 대해서 정리하면 초항 1, 공비 $$\dfrac{1}{(1+r)}$$인 무한등비급수로 정렬되므로 영구채의 듀레이션은 아래와 같습니다.
-
-<GMath>
-    $$ D = \dfrac{1+r}{r} $$
-</GMath>
-</Fieldset>
-
-일반적으로 표면이자율이 만기수익률보다 높거나 만기수익률과 같은 경우에는 만기가 증가하면 듀레이션 역시 $$\dfrac{(1+r)}{r}$$을 향하여 계속적으로 증가하고, 표면이자율이 0보다 크면서 만기수익률보다 낮은 경우에는 만기가 증가함에 따라 듀레이션은 처음에는 증가하다 최고점에 도달한 후 감소하면서 $$\dfrac{(1+r)}{r}$$에 수렴하는 것으로 알려져 있습니다<GTooltipIcon desc="윤평식, “고정수익증권론”, 2001, p119" severity="success" icon="pi pi-exclamation-circle"/>.
-
-#### 4) 채권수익률이 낮아질수록 듀레이션 값은 커지게 된다.
-
-할인율로 작용하는 채권수익률이 낮아지면 할인율의 승수효과와 현금흐름의 만기집중으로 인해 만기에 가까운 현금흐름의 가중치가 상대적으로 크게 증가합니다. 따라서 채권수익률이 낮아질수록 듀레이션은 커지게 되는 역의 상관관계를 갖습니다.
-
-듀레이션이 가중평균만기라는 관점에서 보면 채권수익률이 높아질수록 표면이자수입의 재투자 수익이 증가하여 상대적으로 많은 현금수입이 조기에 실현될 수 있으므로 채권수익률이 높아질수록 듀레이션은 작아지게 됩니다.
-
-#### 5) 할인채의 듀레이션은 만기와 일치한다.
-
-할인채의 경우 만기 전에는 이자지급이 없고 만기에 상환금액만이 지급되기 때문에 할인채의 듀레이션은 항상 그 만기와 일치합니다.
-
-#### 6) 만기일이 가까워질수록 듀레이션도 감소한다.
-
-만기일에 근접함에 따라 잔존만기가 감소하므로 듀레이션도 감소합니다. 할인채의 경우 듀레이션은 만기와 같으므로 동일한 속도로 감소하나 이표채의 경우 만기일에 가까울수록(잔존만기가 감소할 수록) 듀레이션이 감소하는 속도는 증가합니다.
-
-### (3) 채권가격의 변동성과 듀레이션의 관계
-
-이자율위험은 시장이자율의 변동에 기인한 채권가격의 변동성으로 정의될 수 있으므로, 이자율 탄력성(interest rate elasticity)을 채권의 이자율위험에 대한 적절한 지표로 사용할 수 있습니다. 일정한 시장이자율의 변동에 대하여 이자율탄력성이 클수록 가격변동폭이 확대될 것이므로 보다 큰 이자율위험을 갖고 있다고 할 수 있습니다.
-
-<GMath> 
-  채권의 이자율탄력성 = 채권가격변화율(%) / 이자율변화율(%) = $$ \left(-\right)\dfrac{dP/P}{dr/r}  $$
-</GMath>
-
-채권가격(P)과 채권수익률(r)은 반대방향으로 움직이기 때문에 이자율탄력성은 일반적으로 부(負)의 값을 갖게 되며 그 절대값이 크면 클수록 탄력적입니다. 탄력성의 정도를 양으로 표현하기 위해 (-)를 붙여서 사용하기도 합니다.
-
-듀레이션이 갖는 중요한 의미는 듀레이션이 이러한 채권의 이자율위험을 나타내는 척도가 된다는 것입니다. 
-
-* ① 채권평가모형
-<GMath>
-    * $$ P = \dfrac{C_1}{\left(1+r\right)^1}+\dfrac{C_2}{\left(1+r\right)^2}+\dfrac{C_3}{\left(1+r\right)^3}+\cdots+\dfrac{C_n}{\left(1+r\right)^n}+\dfrac{F}{\left(1+r\right)^n} $$
-</GMath>
-* ② 양변을 r에 대해서 미분하고 정리
-<GMath>
-    * $$ \dfrac{dP}{dr} = \dfrac{-1}{\left(1+r\right)}\times\left[\dfrac{C_1}{\left(1+r\right)^1}+\dfrac{2\times C_2}{\left(1+r\right)^2}+\dfrac{3\times C_3}{\left(1+r\right)^3}+\cdots+\dfrac{n\times C_n}{\left(1+r\right)^n}+\dfrac{n\times F}{\left(1+r\right)^n}\right] $$
-</GMath>
-* ③ 양변을 채권가격 P로 나누고 듀레이션 계산식을 적용
-<GMath title="[좌변]">
-        * $$ \dfrac{\left(\dfrac{dP}{dr}\right)}{P} = \dfrac{\left(\dfrac{dP}{P}\right)}{dr} \implies $$ 이자율 변화폭 $$dr$$에 대한 채권가격의 변화율(%)
-</GMath>
-<GMath title="[우변]">
-        * $$ \dfrac{-1}{\left(1+r\right)}\times\left[\dfrac{\dfrac{C_1}{\left(1+r\right)^1}}{P}+2\times\dfrac{\dfrac{C_2}{\left(1+r\right)^2}}{P}+\cdots+n\times\dfrac{\dfrac{C_n}{\left(1+r\right)^n}}{P}+n\times\dfrac{\dfrac{F}{\left(1+r\right)^n}}{P}\right] = \dfrac{-1}{\left(1+r\right)}\times D $$
-<br/>
-        * $$ \therefore \left(\dfrac{dP}{dr}\right)\times\left(\dfrac{1}{P}\right) = \dfrac{-1}{\left(1+r\right)}\times D $$
-</GMath>
-* ④ 채권의 이자율탄력성 = 채권가격변화율(%) / 이자율변화율(%) = $$ \left(-\right)\frac{dP/P}{dr/r} $$  이므로
-<GMath>
-    * $$ \therefore \left(\dfrac{dP}{dr}\right)\times\left(\dfrac{r}{P}\right) = \left(-\right)\dfrac{r}{\left(1+r\right)}\times D $$
-</GMath>
-
-즉, 채권의 이자율탄력성은 듀레이션과 비례합니다. 따라서 어떤 채권의 듀레이션을 알고 있으면 그 채권의 이자율탄력성 또는 이자율변동위험을 알 수 있으므로 투자자는 시장이자율이 하락할 것으로 예상되면 듀레이션이 긴 채권을 보유하므로써 채권가격의 변화로 인한 자본이득(capital gain)을 얻을 수 있게 됩니다. 
-
-실무적으로 어떤 채권의 이자율변동위험을 알려주는 척도로는 이자율탄력성보다 듀레이션이 널리 사용됩니다. 위의 식을 dP에 대하여 정리하면 시장수익률이 변화할 때 채권가격의 변화<GTooltipIcon desc="이와 같이 수익률 변동에 대한 채권가격의 변동분을 더욱 쉽게 계산하기 위해 풀어쓴 지표를 금액듀레이션이라고 함" severity="info"/>를 구할 수 있습니다.
-
-<GMath>
-    $$ dP = \left(-\right)D\times\dfrac{dr}{1+r}\times P $$
-</GMath>
-
-채권가격의 변화는 듀레이션과 수익률 변화로 표현되며, 이는 만기가 상이하더라도 듀레이션이 동일하면 채권가격의 변화율도 동일함을 의미합니다.
-
-<Card title="[예제3]">
-표면이율 3.75%, 이자지급단위가 6개월, 잔존만기 2년인 국고채권의 시장수익률이 3.56%로 형성되어 있을 때 듀레이션은 3.89115(반기)입니다. 이때 시장수익률이 3.80%으로 급등할 경우 듀레이션을 이용한 가격변화폭을 계산하면 아래와 같습니다.
-
-<GMath>
-    $$ dP = \left(-\right)3.89115\times\dfrac{\dfrac{\left(0.038-0.0356\right)}{2}}{\left(1+\dfrac{0.0356}{2}\right)}\times 10,036.36738 = -46.04원 $$
-</GMath>
-</Card>
-
-### (4) 수정듀레이션
-
-앞의 식에서 나타나듯이 채권가격변동폭 측정에 사용되는 듀레이션(D)은 일반적으로 $$\dfrac{D}{\left(1+r\right)}$$의 형태로 활용되었음을 알 수 있습니다. 1939년 힉스는 $$\dfrac{D}{\left(1+r\right)}$$를 가격변동성의 지표로서 도출하였으며 이를 수정듀레이션(MD：Modified Duration) 혹은 힉스듀레이션(Hicks Duration)이라 하였습니다. 앞서 논의한 채권의 이자율탄력성 식에서 수정듀레이션은 다음과 같이 응용될 수 있습니다.
-
-<GMath>
-    $$ \dfrac{dP}{P} = - MD \times dr $$
-</GMath>
-
-상기 식은 이자율 변동폭에 대해 채권가격의 변동률이 수정듀레이션의 값으로 계산된다는 것으로, 이자율변동에 따른 채권가격 변동위험을 직접적으로 제시해 준다는 장점이 있습니다. 이 식에서 $$dr$$이 1%(또는 bp)이면 가격변화율은 $$-MD$$(%)입니다. 따라서 $$MD$$를 가격탄력성과 유사한 개념으로도 사용할 수 있습니다. 
-
-\[예제3\]을 수정듀레이션 개념을 이용하여 풀면 $$MD$$=3.823099, $$dr$$=0.12%로 가격변동률은 -0.458772%, 가격변동폭은 -46.04원으로 같습니다.
-
-일반적으로 Macaulay Duration은 가중평균잔존기간으로 수익률변동위험을 회피하기 위한 면역 전략에 활용되는 반면 수정듀레이션은 채권가격변동성을 측정하는 지표로 활용되고 있습니다.
-
->>>>>>> f8f8690bc2169f9d42ff3b45b648f987a8bc4421
